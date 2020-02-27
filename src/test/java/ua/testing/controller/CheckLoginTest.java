@@ -11,8 +11,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import ua.testing.controller.services.*;
 
-import static org.junit.Assert.*;
-
 
 /**
  * Tests user logins.
@@ -24,10 +22,10 @@ public class CheckLoginTest {
 
     public ExpectedException expectedException = ExpectedException.none();
 
-    @Test(expected = ExceptionSuchLoginExists.class)
-    public void checkIncorrectLogins() throws ExceptionSuchLoginExists {
-        expectedException.expect(ExceptionSuchLoginExists.class);
-        CheckLogin.first.checkLogin("bob123");
+    @Test(expected = SuchLoginExistsException.class)
+    public void checkIncorrectLogins() throws SuchLoginExistsException {
+        expectedException.expect(SuchLoginExistsException.class);
+        DBCheckLogin.first.checkLogin("","a12345678");
     }
 
 }

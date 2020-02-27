@@ -36,9 +36,9 @@ public class ReadNote {
         while (true) {
             login = getScannerInputWithRegex(view.ASK_NICKNAME, view.REGEX_NICKNAME_CHECK_OUT);
             try {
-                CheckLogin.first.checkLogin(login);
+                DBCheckLogin.first.checkLogin(view.EXCEPTION_SUCH_LOGIN_EXISTS, login);
                 break;
-            } catch (ExceptionSuchLoginExists e) {
+            } catch (SuchLoginExistsException e) {
                 View.showMessage(View.concatenatingStrings(view.EXCEPTION_SUCH_LOGIN_EXISTS, View.SPACE_SIGN, login));
             }
         }

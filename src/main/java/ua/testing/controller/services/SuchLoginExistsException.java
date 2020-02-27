@@ -14,8 +14,15 @@ package ua.testing.controller.services;
  * @author Firstname Lastname
  * @version 1.00 20 Feb 2020
  */
-public class ExceptionSuchLoginExists extends Throwable {
-    public ExceptionSuchLoginExists(String message) {
+public class SuchLoginExistsException extends Throwable {
+    String login;
+
+    public SuchLoginExistsException(String message, String login) {
         super(message);
+        this.login = login;
+    }
+
+    public String getLogin() {
+        return login;
     }
 }
